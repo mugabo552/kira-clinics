@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnerships - Kira Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navigation (Consistent with main site) */
+        .top-nav {
+            background-color: #9bc407;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .nav-name {
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links ul li {
+            margin: 0 15px;
+        }
+        
+        .nav-links ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2a4365;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Partnership Benefits Section */
+        .benefits-section {
+            background-color: #f0f7f1;
+            padding: 80px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 50px;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: #2a4365;
+        }
+        
+        /* Partnership Types Section */
+        .partnership-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .partnership-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .partnership-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .partnership-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .partnership-content {
+            padding: 30px;
+        }
+        
+        .partnership-content h3 {
+            font-size: 24px;
+            color: #2a4365;
+            margin-bottom: 15px;
+        }
+        
+        .partnership-content ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .partnership-content ul li {
+            margin-bottom: 10px;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        
+        .learn-more:hover {
+            background-color: #1b5e20;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin: 80px 0;
+            border-radius: 8px;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ffd600;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #ffc400;
+        }
+        
+        /* Current Partners Section */
+        .current-partners {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .partner-logo {
+            background: #f1f8e9;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .partner-logo:hover {
+            border-color: #43a047;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.2);
+        }
+        
+        /* Footer (Black) */
+        footer {
+            background-color: #000;
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #ffd600;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ffd600;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd600;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            flex: 1;
+        }
+        
+        .newsletter-form button {
+            background-color: #ffd600;
+            color: #333;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .partnership-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <div class="nav-logo">K</div>
+            <div class="nav-name">Kira Clinic</div>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="partnerships.html">Partnerships</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Strategic Partnerships</h1>
+        <p>Collaborating to deliver exceptional healthcare services and improve community wellness</p>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Partner With Kira Clinic?</h2>
+                    <p>Our partnerships create value for both organizations while improving patient outcomes</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Mutual Growth</h3>
+                        <p>Expand your reach and services through collaborative programs and shared resources</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Enhanced Services</h3>
+                        <p>Combine expertise to offer more comprehensive care options to patients</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Operational Efficiency</h3>
+                        <p>Streamline processes and reduce costs through shared systems and best practices</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Co-develop new healthcare solutions through joint research and development</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Improved Outcomes</h3>
+                        <p>Deliver better patient results through coordinated, multidisciplinary care</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Community Impact</h3>
+                        <p>Make a greater difference through combined community health initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Partnership Types Section -->
+        <section class="container">
+            <div class="section-title">
+                <h2>Our Partnership Opportunities</h2>
+                <p>We collaborate with organizations across the healthcare ecosystem</p>
+            </div>
+            
+            <div class="partnership-types">
+                <!-- Healthcare Providers -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Healthcare Providers">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Healthcare Providers</h3>
+                        <p>Collaborate with other medical practices, hospitals, and specialists to:</p>
+                        <ul>
+                            <li>Expand referral networks</li>
+                            <li>Share specialist resources</li>
+                            <li>Coordinate patient care</li>
+                            <li>Develop integrated care pathways</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+                
+                <!-- Corporate Wellness -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Corporate Wellness">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Corporate Wellness</h3>
+                        <p>Partner with businesses to support employee health through:</p>
+                        <ul>
+                            <li>On-site health screenings</li>
+                            <li>Preventive care programs</li>
+                            <li>Occupational health services</li>
+                            <li>Executive health packages</li>
+                            <li>Telemedicine solutions</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+                
+                <!-- Community Organizations -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Organizations">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Community Organizations</h3>
+                        <p>Work with nonprofits and community groups to:</p>
+                        <ul>
+                            <li>Provide health education</li>
+                            <li>Offer free/subsidized screenings</li>
+                            <li>Address health disparities</li>
+                            <li>Support vulnerable populations</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+                
+                <!-- Technology Partners -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Technology Partners">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Technology Partners</h3>
+                        <p>Collaborate with health tech companies to:</p>
+                        <ul>
+                            <li>Implement innovative solutions</li>
+                            <li>Develop digital health tools</li>
+                            <li>Enhance telemedicine services</li>
+                            <li>Improve patient engagement</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+                
+                <!-- Research Institutions -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Research Institutions">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Research Institutions</h3>
+                        <p>Partner with academic and research organizations to:</p>
+                        <ul>
+                            <li>Conduct clinical trials</li>
+                            <li>Advance medical research</li>
+                            <li>Develop new treatments</li>
+                            <li>Train future healthcare professionals</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+                
+                <!-- Insurance Providers -->
+                <div class="partnership-card">
+                    <div class="partnership-image">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Insurance Providers">
+                    </div>
+                    <div class="partnership-content">
+                        <h3>Insurance Providers</h3>
+                        <p>Work with payers to develop:</p>
+                        <ul>
+                            <li>Value-based care models</li>
+                            <li>Preferred provider networks</li>
+                            <li>Preventive care programs</li>
+                            <li>Cost-effective treatment plans</li>
+                        </ul>
+                        <a href="#contact" class="learn-more">Explore Opportunities</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Explore Partnership Opportunities?</h2>
+            <p>Contact our partnership team to discuss how we can work together to improve healthcare delivery and outcomes.</p>
+            <a href="contact.html" class="cta-button">Get in Touch</a>
+        </section>
+        
+        <!-- Current Partners Section -->
+        <section class="current-partners">
+        <div class="container">
+            <h2 class="section-title">Our Valued Partners</h2>
+            <p class="section-subtitle">We are proud to collaborate with these organizations in our mission to provide exceptional healthcare services.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="ministry.jpeg" alt="Rwanda Ministry of Health Logo" class="logo-space" />
+                    <h4>Rwanda Ministry of Health</h4>
+                    <p class="partner-description">Government partnership for healthcare policy and regulation</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="sanlam.png" alt="sanlam Logo" class="logo-space" />
+                    <h4>Community Care Network</h4>
+                    <p class="partner-description">Working together to offer free health screenings and educational workshops in underserved communities</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="who.png" alt="WHO Rwanda Logo" class="logo-space" />
+                    <h4>WHO Rwanda</h4>
+                    <p class="partner-description">Global health initiatives and best practices implementation</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="rps.png" alt="Rwanda Pharmaceutical Society Logo" class="logo-space" />
+                    <h4>Rwanda Pharmaceutical Society</h4>
+                    <p class="partner-description">Pharmaceutical expertise and medication management</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="ass.jpeg" alt="Local Business Association Logo" class="logo-space" />
+                    <h4>Local Business Association</h4>
+                    <p class="partner-description">Corporate wellness and occupational health programs</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="care.jpeg" alt="Community Health Cooperatives Logo" class="logo-space" />
+                    <h4>Community Health Cooperatives</h4>
+                    <p class="partner-description">Grassroots healthcare delivery and community outreach</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Clinic Info -->
+            <div class="footer-column">
+                <h3>Kira Clinic</h3>
+                <p>Providing quality healthcare services with compassion and excellence since 2005.</p>
+                <p><i class="fas fa-map-marker-alt"></i> kiraclinic</p>
+                <p><i class="fas fa-phone"></i> 0788432230</p>
+                <p><i class="fas fa-envelope"></i> info@kiraclinic.com</p>
+            </div>
+
+            <!-- Our Services -->
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="services.html">General Medicine</a></li>
+                    <li><a href="services.html">Pediatrics</a></li>
+                    <li><a href="services.html">Women's Health</a></li>
+                    <li><a href="services.html">Preventive Care</a></li>
+                    <li><a href="services.html">Diagnostic Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="partnerships.html">Partnerships</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Kira Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

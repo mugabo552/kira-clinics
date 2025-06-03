@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - Kira Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navigation (Same as your main site) */
+        .top-nav {
+            background-color: #85c018;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .nav-name {
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links ul li {
+            margin: 0 15px;
+        }
+        
+        .nav-links ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Doctors Section */
+        .doctors-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2a4365;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .doctor-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .doctor-card:hover .doctor-image img {
+            transform: scale(1.05);
+        }
+        
+        .doctor-info {
+            padding: 25px;
+        }
+        
+        .doctor-info h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #2a4365;
+        }
+        
+        .doctor-specialty {
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .doctor-bio {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .doctor-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .doctor-experience, .doctor-patients {
+            text-align: center;
+        }
+        
+        .doctor-meta strong {
+            display: block;
+            font-size: 20px;
+            color: #2a4365;
+        }
+        
+        .doctor-meta span {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .view-profile {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .view-profile:hover {
+            background-color: #1b5e20;
+        }
+        
+        /* Specialties Section */
+        .specialties {
+            background-color: #f0f7f1;
+            padding: 80px 0;
+        }
+        
+        .specialties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .specialty-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .specialty-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .specialty-icon {
+            font-size: 40px;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+        
+        .specialty-card h3 {
+            margin-bottom: 15px;
+            color: #2a4365;
+        }
+        
+        /* Footer (Same as your main site but black) */
+        footer {
+            background-color: #000;
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #ffd600;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ffd600;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd600;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            flex: 1;
+        }
+        
+        .newsletter-form button {
+            background-color: #ffd600;
+            color: #333;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <div class="nav-logo">K</div>
+            <div class="nav-name">Kira Clinic</div>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="partnerships.html">Partnerships</a></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Meet Our Doctors</h1>
+        <p>Our team of board-certified physicians brings exceptional expertise and compassionate care to every patient.</p>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Doctors Section -->
+        <section class="doctors-container">
+            <div class="section-title">
+                <h2>Our Specialist Physicians</h2>
+                <p>Each of our doctors is highly qualified in their field with years of experience providing top-quality care.</p>
+            </div>
+            
+            <div class="doctors-grid">
+                <!-- Doctor 1 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Johnson">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <span class="doctor-specialty">Cardiologist</span>
+                        <p class="doctor-bio">Board-certified cardiologist with 12 years of experience specializing in preventive cardiology and heart failure management.</p>
+                        <a href="dr-sarah-johnson.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>12+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>5,000+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 2 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Michael Chen">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <span class="doctor-specialty">Pediatrician</span>
+                        <p class="doctor-bio">Specializes in pediatric care with a focus on childhood development and preventive medicine for infants through adolescents.</p>
+                        <a href="dr-michael-chen.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>15+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>8,000+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 3 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Amina Rahman">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Amina Rahman</h3>
+                        <span class="doctor-specialty">Obstetrician/Gynecologist</span>
+                        <p class="doctor-bio">Provides comprehensive women's health services with special expertise in high-risk pregnancies and minimally invasive surgery.</p>
+                        <a href="dr-amina-rahman.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>10+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>6,500+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 4 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Robert Wilson">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Robert Wilson</h3>
+                        <span class="doctor-specialty">Neurologist</span>
+                        <p class="doctor-bio">Specializes in the diagnosis and treatment of neurological disorders including epilepsy, migraines, and movement disorders.</p>
+                        <a href="dr-robert-wilson.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>18+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>7,200+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 5 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1551601651-bc60f254d532?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Lisa Park">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Lisa Park</h3>
+                        <span class="doctor-specialty">Dermatologist</span>
+                        <p class="doctor-bio">Board-certified dermatologist specializing in medical, surgical, and cosmetic dermatology for patients of all ages.</p>
+                        <a href="dr-lisa-park.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>9+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>4,800+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctor 6 -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. David Miller">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. David Miller</h3>
+                        <span class="doctor-specialty">Orthopedic Surgeon</span>
+                        <p class="doctor-bio">Specializes in sports medicine and joint replacement with expertise in minimally invasive surgical techniques.</p>
+                        <a href="dr-david-miller.html" class="view-profile">View Profile</a>
+                        <div class="doctor-meta">
+                            <div class="doctor-experience">
+                                <strong>14+</strong>
+                                <span>Years Experience</span>
+                            </div>
+                            <div class="doctor-patients">
+                                <strong>5,600+</strong>
+                                <span>Patients Treated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Specialties Section -->
+        <section class="specialties">
+            <div class="specialties-container">
+                <div class="section-title">
+                    <h2>Our Medical Specialties</h2>
+                    <p>We offer comprehensive care across these medical specialties and more.</p>
+                </div>
+                
+                <div class="specialties-grid">
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Cardiology</h3>
+                        <p>Heart health, preventive care, and treatment of cardiovascular conditions.</p>
+                    </div>
+                    
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Pediatrics</h3>
+                        <p>Comprehensive care for infants, children, and adolescents.</p>
+                    </div>
+                    
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3>Women's Health</h3>
+                        <p>Obstetrics, gynecology, and specialized women's services.</p>
+                    </div>
+                    
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Neurology</h3>
+                        <p>Diagnosis and treatment of nervous system disorders.</p>
+                    </div>
+                    
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Orthopedics</h3>
+                        <p>Musculoskeletal care, sports medicine, and joint health.</p>
+                    </div>
+                    
+                    <div class="specialty-card">
+                        <div class="specialty-icon">
+                            <i class="fas fa-allergies"></i>
+                        </div>
+                        <h3>Dermatology</h3>
+                        <p>Skin health, cosmetic procedures, and treatment of skin conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Clinic Info -->
+            <div class="footer-column">
+                <h3>Kira Clinic</h3>
+                <p>Providing quality healthcare services with compassion and excellence since 2005.</p>
+                <p><i class="fas fa-map-marker-alt"></i>kiraclinic</p>
+                <p><i class="fas fa-phone"></i> 0788432230</p>
+                <p><i class="fas fa-envelope"></i> info@kiraclinic.com</p>
+            </div>
+
+            <!-- Our Services -->
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="services.html">General Medicine</a></li>
+                    <li><a href="services.html">Pediatrics</a></li>
+                    <li><a href="services.html">Women's Health</a></li>
+                    <li><a href="services.html">Preventive Care</a></li>
+                    <li><a href="services.html">Diagnostic Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Our Doctors</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Kira Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

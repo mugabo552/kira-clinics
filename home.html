@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - Quality Healthcare Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .top-nav {
+            background-color: yellowgreen; 
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .nav-name {
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links ul li {
+            margin: 0 15px;
+        }
+        
+        .nav-links ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .header-container {
+            position: relative;
+            height: 500px; 
+            overflow: hidden;
+        }
+        
+        .header-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .header-content {
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.4); 
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .clinic-name {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .welcome-message {
+            font-size: 24px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn-get-started {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-contact {
+            background-color: yellowgreen; 
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-get-started:hover {
+            background-color: #1b5e20;
+        }
+        
+        .btn-contact:hover {
+            background-color: #ffc400;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .service-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .service-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .service-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .service-info {
+            flex: 1;
+        }
+        
+        .service-info h2 {
+            font-size: 32px;
+            color: #2a4365;
+            margin-bottom: 20px;
+        }
+        
+        .service-info p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        @media (min-width: 769px) {
+            .pediatrics-section {
+                flex-direction: row-reverse;
+            }
+        }
+        @media (max-width: 768px) {
+            .pediatrics-section {
+                flex-direction: column;
+            }
+        }
+        footer {
+            background-color: #0a1018;
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #ffd600;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column p, .footer-column li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ffd600;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd600;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            flex: 1;
+        }
+        
+        .newsletter-form button {
+            background-color: #ffd600;
+            color: #333;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            background-color: rgba(86, 83, 83, 0.17);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-section {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links ul li {
+                margin: 5px 10px;
+            }
+            
+            .header-content {
+                padding: 20px;
+            }
+            
+            .clinic-name {
+                font-size: 36px;
+            }
+            
+            .welcome-message {
+                font-size: 18px;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav" aria-label="Main navigation">
+        <div class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">Kira</div>
+            <div class="nav-name">Kira Clinic</div>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="our partenership.html">partenership</a><li></li>
+                <li><a href="doctors.html">Our Doctors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="header-container" id="home">
+        <img src="doctor.jpg" alt="Doctor and patient in Kira Clinic consultation room" class="header-photo">
+        <div class="header-content">
+            <h1 class="clinic-name">Welcome to kira clinic</h1>
+            <p class="welcome-message">Your Trusted Healthcare Provider</p>
+            <div class="header-buttons">
+                <button type="button" class="btn-get-started">Get Started</button>
+                <button type="button" class="btn-contact">Contact Us</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <h2>Our Services</h2>
+        </section>
+        
+        <section id="services">
+            <div class="service-section">
+                <div class="service-image">
+                    <img src="illness-inner-desktop.jpg" alt="Doctor examining patient in general medicine">
+                </div>
+                <div class="service-info">
+                    <h2>treatment for illness</h2>
+                    <p>Our general medicine department provides comprehensive care for adults, focusing on preventive health, chronic disease management, and acute illness treatment. Our experienced physicians take a holistic approach to your health and wellbeing.</p>
+                    <p>We offer routine check-ups, health screenings, immunizations, and personalized treatment plans tailored to your specific health needs.</p>
+                    <button type="button" class="btn-get-started" style="margin-top: 15px;">Learn More</button>
+                </div>
+            </div>
+            
+            <div class="service-section pediatrics-section">
+                <div class="service-image">
+                    <img src="advancedlabo.jpg" alt="Pediatrician examining young child">
+                </div>
+                <div class="service-info">
+                    <h2>basic laboratory</h2>
+                    <p>Our pediatric specialists provide compassionate care for infants, children, and adolescents. We focus on growth, development, and preventive care to ensure your child's healthy future.</p>
+                    <p>Services include well-child visits, immunizations, developmental screenings, and treatment for childhood illnesses and conditions.</p>
+                    <button type="button" class="btn-get-started" style="margin-top: 15px;">Learn More</button>
+                </div>
+            </div>
+            
+            <div class="service-section">
+                <div class="service-image">
+                    <img src="vassinations for all.jpeg" alt="Doctor discussing women's health options">
+                </div>
+                <div class="service-info">
+                    <h2>vassinations for all</h2>
+                    <p>Our women's health services provide complete gynecological care in a comfortable and supportive environment. We offer family planning, prenatal and postnatal care, and specialized treatments.</p>
+                    <p>Our compassionate team understands the unique health needs of women at every stage of life.</p>
+                    <button type="button" class="btn-get-started" style="margin-top: 15px;">Learn More</button>
+                </div>
+            </div>
+        </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Kira Clinic</h3>
+                <p>Providing quality healthcare services with compassion and excellence since 2005.</p>
+                <p><i class="fas fa-map-marker-alt"></i> kira clinic</p>
+                <p><i class="fas fa-phone"></i> 0788432230</p>
+                <p><i class="fas fa-envelope"></i> info@kiraclinic.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#services">General Medicine</a></li>
+                    <li><a href="#services">Pediatrics</a></li>
+                    <li><a href="#services">Women's Health</a></li>
+                    <li><a href="#services">Preventive Care</a></li>
+                    <li><a href="#services">Diagnostic Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="About Us.html">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" aria-label="Email for newsletter subscription">
+                    <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Kira Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
